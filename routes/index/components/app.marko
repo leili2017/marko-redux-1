@@ -1,19 +1,25 @@
-import store from '../store';
+import store from '../store'
+
+static function clickHandler (type) {
+  console.log('beginning:', type)
+  console.log(store.getState())
+  store.dispatch({ type: type })
+  console.log('after', store.getState())
+
+}
 
 class {
-    onMount() {
-        store.subscribe(() => {
-            this.forceUpdate();
-        });
+    onMount () {
+      store.subscribe(() => {
+        this.forceUpdate()
+      })
     }
 
-    dispatch(type) {
-        store.dispatch({ type: type });
-    }
+    // clickHandler (type) {
+    //   store.dispatch({ type: type })
+    // }
 }
 
 <div>
-    <counter(store.getState())
-        on-increment('dispatch', 'INCREMENT')
-        on-decrement('dispatch', 'DECREMENT') />
+    <counter(store.getState()) clickHandler=clickHandler/>
 </div>
